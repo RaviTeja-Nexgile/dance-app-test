@@ -51,7 +51,7 @@
   - _Verify: npm test -- progress_
   - _Issue: #8_
 
-- [ ] 8. Achievements on the profile
+- [x] 8. Achievements on the profile
   - _Requirements: 7.1, 7.2, 7.3, 7.4_
   - _Depends: 1, 6_
   - _Files: src/app/api/achievements/route.ts, src/app/profile/achievements.tsx, src/app/achievements.module.css, src/app/api/achievements/**.test.ts_
