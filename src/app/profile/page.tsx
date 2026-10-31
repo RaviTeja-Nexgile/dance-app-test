@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import styles from "../profile.module.css";
+import Achievements from "./achievements";
 
 const LEVELS = ["Beginner", "Intermediate", "Advanced"] as const;
 
@@ -325,6 +326,8 @@ export default function ProfilePage() {
           </button>
         </div>
       </section>
+
+      <Achievements />
     </main>
   );
 }
