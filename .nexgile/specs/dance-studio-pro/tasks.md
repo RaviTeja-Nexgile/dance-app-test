@@ -37,7 +37,7 @@
   - _Verify: npm test -- recordings_
   - _Issue: #6_
 
-- [ ] 6. Profile screen with favorites and practice schedule
+- [x] 6. Profile screen with favorites and practice schedule
   - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7_
   - _Depends: 1_
   - _Files: src/app/profile/page.tsx, src/app/api/profile/route.ts, src/app/api/favorites/[id]/route.ts, src/app/api/schedule/[id]/route.ts, src/app/profile.module.css, src/app/api/profile/**.test.ts_
