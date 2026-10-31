@@ -16,14 +16,14 @@
   - _Verify: npm test -- auth_
   - _Issue: #2_
 
-- [ ] 3. Home screen with tutorial browsing
+- [x] 3. Home screen with tutorial browsing
   - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7_
   - _Depends: 1_
   - _Files: src/app/home/page.tsx, src/app/api/tutorials/route.ts, src/app/home.module.css, src/app/api/tutorials/**.test.ts_
   - _Verify: npm test -- tutorials_
   - _Issue: #3_
 
-- [ ] 4. Tutorial screen with video and slow motion
+- [x] 4. Tutorial screen with video and slow motion
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7_
   - _Depends: 1_
   - _Files: src/app/tutorial/[id]/page.tsx, src/app/api/tutorials/[id]/route.ts, src/app/tutorial.module.css, src/app/api/tutorials/[id]/**.test.ts_
