@@ -1,0 +1,96 @@
+// Prisma schema for Dance Studio Pro
+// SQLite database.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  level        String   @default("Beginner")
+  createdAt    DateTime @default(now())
+
+  recordings  Recording[]
+  favorites   Favorite[]
+  schedule    ScheduleEntry[]
+  completions Completion[]
+  achievements Achievement[]
+}
+
+model Tutorial {
+  id        String @id @default(cuid())
+  title     String
+  category  String
+  level     String
+  videoPath String
+  steps     String // JSON-encoded ordered list of step instructions
+
+  recordings  Recording[]
+  favorites   Favorite[]
+  schedule    ScheduleEntry[]
+  completions Completion[]
+}
+
+model Recording {
+  id              String   @id @default(cuid())
+  userId          String
+  tutorialId      String
+  filePath        String
+  durationSeconds Int
+  createdAt       DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tutorial Tutorial @relation(fields: [tutorialId], references: [id], onDelete: Cascade)
+}
+
+model Favorite {
+  id         String @id @default(cuid())
+  userId     String
+  tutorialId String
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tutorial Tutorial @relation(fields: [tutorialId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tutorialId])
+}
+
+model ScheduleEntry {
+  id          String   @id @default(cuid())
+  userId      String
+  tutorialId  String
+  scheduledAt DateTime
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tutorial Tutorial @relation(fields: [tutorialId], references: [id], onDelete: Cascade)
+}
+
+model Completion {
+  id          String   @id @default(cuid())
+  userId      String
+  tutorialId  String
+  completedAt DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tutorial Tutorial @relation(fields: [tutorialId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tutorialId])
+}
+
+model Achievement {
+  id       String   @id @default(cuid())
+  userId   String
+  name     String
+  earnedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
+}
