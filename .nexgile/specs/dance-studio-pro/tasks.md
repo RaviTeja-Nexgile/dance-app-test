@@ -1,6 +1,6 @@
 # Tasks: Dance Studio Pro
 
-- [ ] 1. Project setup
+- [x] 1. Project setup
   - _Requirements: 1.1, 1.7_
   - _Files: package.json, tsconfig.json, next.config.mjs, tailwind.config.ts, postcss.config.mjs, prisma/schema.prisma, .env.example, .gitignore, README.md, src/app/layout.tsx, src/app/globals.css, src/app/api/health/route.ts, src/lib/db.ts, src/lib/auth.ts, prisma/seed.ts, e2e/.gitkeep, src/lib/**/*.test.ts_
   - _Verify: npm test_
