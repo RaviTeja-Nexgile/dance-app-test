@@ -7,3 +7,7 @@ export const CATEGORIES = [
 ] as const;
 
 export const LEVELS = ["Beginner", "Intermediate", "Advanced"] as const;
+
+export function isLevel(name: string): boolean {
+  return (LEVELS as readonly string[]).includes(name);
+}
